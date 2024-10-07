@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: gray;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+           
+        }
+
+        .cart-items {
+            background-color: rgba(86, 234, 52, 0.642);
+            width: 60%;
+            padding: 20px;
+            border-radius: 5px;
+            
+            box-shadow: 1px 4px 10px rgba(8, 8, 8, 0.9);
+        }
+
+        .cart-items h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .cart-item-details h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            margin-left: 80px;
+        }
+
+        .cart-item-details p {
+            font-size: 14px;
+            color: rgb(254, 254, 254);
+            margin-left: 67px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-quantity button {
+            border: none;
+            background-color: transparent;
+            font-size: 24px;
+            padding: 33.5px;
+            cursor: pointer;
+
+        }
+
+        .cart-item-quantity input {
+            width: 40px;
+            text-align: center;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid  black;
+            border-radius: 3px;
+            margin: 0 10px;
+        }
+
+        .cart-item-price {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 20px;
+            
+        }
+
+        .remove-item {
+            cursor: pointer;
+            color: rgb(253, 3, 3);
+            font-size: 18px;
+        }
+
+        .summary {
+            background-color: #f0f0f0;
+            width: 35%;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 1px 4px 10px rgba(8, 8, 8, 0.9);
+        }
+
+        .summary h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            margin: 35px 0px;
+        }
+
+        .summary-item label{
+            margin: 13px 4px;
+            font-weight: 600;
+        }
+
+        .summary-item p {
+            font-size: 16px;
+        }
+
+        .summary-item select,
+        .summary-item input {
+            width: 65%;
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 5px;
+            border: 1px solid #e5e5e5;
+            border-radius: 3px;
+        }
+
+        .summary-total {
+            font-size: 20px;
+            font-weight: bold;
+            
+        }
+
+        .checkout-btn {
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 115px
+        }
+
+        .checkout-btn:hover {
+            background-color: #333;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 786px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .cart-items,
+            .summary {
+                width: 100%;
+                margin-bottom: 20px;
+                  
+                
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .cart-item-quantity input {
+                width: 50px;
+            }
+
+            .cart-item-price {
+                font-size: 16px;
+            }
+
+            .summary-item input,
+            .summary-item select {
+                width: 100%;
+            }
+
+            .checkout-btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cart-items">
+            <h1>Shopping Cart <span>3 Items</span></h1>
+            <div class="cart-item">
+                <img src="/Assets/t-shirt1.jpeg" alt="Cotton T-shirt">
+                <div class="cart-item-details">
+                    <h2>T-Shirt</h2>
+                    <p>Cotton T-shirt</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </div>
+                <div class="cart-item-price">  ₹329</div>
+                <div class="remove-item">&times;</div>
+            </div>
+
+            <div class="cart-item">
+                <img src="/Assets/t-shirt2.jpeg" alt="Cotton T-shirt">
+                <div class="cart-item-details">
+                    <h2>T-Shirt</h2>
+                    <p>Cotton T-shirt</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <button>-</button>
+                    <input type="text" value="2">
+                    <button>+</button>
+                </div>
+                <div class="cart-item-price"> ₹649</div>
+                <div class="remove-item">&times;</div>
+            </div>
+
+            <div class="cart-item">
+                <img src="/Assets/t-shirt3.jpeg" alt="Cotton T-shirt">
+                <div class="cart-item-details">
+                    <h2>T-Shirt</h2>
+                    <p>Cotton T-shirt</p>
+                </div>
+                
+                <div class="cart-item-quantity">
+                    <button>-</button>
+                    <input type="text" value="1">
+                    <button>+</button>
+                </div>
+                <div class="cart-item-price"> ₹799</div>
+                <div class="remove-item">&times;</div>
+            </div>
+
+            <a href="#" class="back-link">← Back to shop</a>
+        </div>
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="summary-item">
+                <p>ITEMS 3</p>
+                <p>Rs ₹1,777</p>
+            </div>
+            <div class="summary-item">
+                <label for="shipping">SHIPPING</label>
+                <select id="shipping">
+                    <option>Standard-Delivery - Rs ₹500</option>
+                    <option>Express-Delivery - Rs ₹1000</option>
+                </select>
+            </div>
+            <div class="summary-item">
+                <label for="code">GIVE CODE</label>
+                <input type="text" id="code" placeholder="Enter your code">
+            </div>
+            <div class="summary-total">
+                TOTAL PRICE: Rs ₹1,000
+            </div>
+            <button class="checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
+
+    <script>
+        
+            let cart = [
+                { name: 'T-Shirt', price: 329, quantity: 1 },
+                { name: 'T-Shirt', price: 649, quantity: 2 },
+                { name: 'T-Shirt', price: 799, quantity: 1 }
+            ];
+        
+            
+            function updateTotal() {
+                let subtotal = 0;
+                let items = 0;
+        
+                cart.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                    items += item.quantity;
+                });
+        
+               
+                document.querySelector('.summary-item p:last-child').textContent = `Rs ₹${subtotal}`;
+                document.querySelector('.summary-total').textContent = `TOTAL PRICE: Rs ₹${subtotal}`;
+        
+                
+                document.querySelector('.cart-items h1 span').textContent = `${items} Items`;
+            }
+        
+            
+            function handleQuantityChange(index, change) {
+                if (cart[index].quantity + change > 0) {
+                    cart[index].quantity += change;
+        
+                    
+                    document.querySelectorAll('.cart-item-quantity input')[index].value = cart[index].quantity;
+        
+                    
+                    updateTotal();
+                }
+            }
+        
+           
+            function removeItem(index) {
+                
+                cart.splice(index, 1)
+        
+                
+                document.querySelectorAll('.cart-item')[index].remove();
+        
+                
+                updateTotal();
+            }
+        
+            
+            document.querySelectorAll('.cart-item-quantity button').forEach((button, index) => {
+                button.addEventListener('click', (e) => {
+                    const isDecrement = e.target.textContent === '-';
+                    handleQuantityChange(Math.floor(index / 2), isDecrement ? -1 : 1);
+                })
+            })
+        
+            document.querySelectorAll('.remove-item').forEach((button, index) => {
+                button.addEventListener('click', () => removeItem(index))
+            })
+        
+           
+            updateTotal();
+        </script>
+        
+    
+</body>
+
+</html>
